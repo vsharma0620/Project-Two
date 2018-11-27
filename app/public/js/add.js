@@ -1,29 +1,28 @@
-// The code in add.js handles what happens when the user clicks the "Add a book" button.
+// The code in add.js handles what happens when the user clicks the "submit" button.
 
-// When user clicks add-btn
-$("#add-btn").on("click", function(event) {
+// When user clicks submit-btn
+$("#submit-btn").on("click", function(event) {
   event.preventDefault();
 
-  // Make a newBook object
-  var newBook = {
-    title: $("#title").val().trim(),
-    author: $("#author").val().trim(),
-    genre: $("#genre").val().trim(),
-    pages: $("#pages").val().trim()
+  // Make a new user object
+  var newUser = {
+    username: $("#inputUsername").val().trim(),
+    category: $("#category").val().trim(),
+    presenter: $("#presenter").val().trim(),
   };
 
   // Send an AJAX POST-request with jQuery
-  $.post("/api/new", newBook)
+  $.post("/api/newUser", newUser)
     // On success, run the following code
     .then(function(data) {
       // Log the data we found
       console.log(data);
+      localStorage.setItem('user', JSON.stringify(newUser));
     });
 
-  // Empty each input box by replacing the value with an empty string
-  $("#title").val("");
-  $("#author").val("");
-  $("#genre").val("");
-  $("#pages").val("");
 
+  // Empty each input box by replacing the value with an empty string
+  $("#username").val("");
+  $("#category").val("");
+  $("#presenter").val("");
 });
