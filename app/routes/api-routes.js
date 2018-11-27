@@ -4,45 +4,38 @@
 
 // Dependencies
 // =============================================================
-var db = require("../models");
 var path = require("path");
+var db = require("../models");
+var express = require('express');
+var router = express.Router();
 
 
 // Routes
 // =============================================================
-module.exports = function(app) {
 
-  // Add sequelize code to get all books and return them as JSON
-  app.get("/api/all", function(req, res) {
+// Add sequelize code to get all books and return them as JSON
+router.get("/api/all", function(req, res) {
 
-  });
+});
 
-  // Add sequelize code to get all books of a specific genre and return them as JSON
-  app.get("/api/genre/:genre", function(req, res) {
+// Add sequelize code to create a book
+router.post("/api/newUser", function(req, res) {
+  console.log("Posted");
+  db.Users.create({
+    username: req.body.username,
+    presenting: req.body.presenter,
+    category: req.body.category
+  })
+    .then(function(dbPost) {
+      console.log("Posted");
+      res.sendFile(path.join(__dirname, "../public/view.html"));
+    });
+});
 
-  });
 
-  // Add sequelize code to get all books from a specific author and return them as JSON
-  app.get("/api/author/:author", function(req, res) {
+// Add sequelize code to delete a book
+router.delete("/api/", function(req, res) {
 
-  });
+});
 
-  // Add sequelize code to create a book
-  app.post("/api/newUser", function(req, res) {
-    db.Users.create({
-      username: req.body.username,
-      presenting: req.body.presenter,
-      category: req.body.category
-    })
-      .then(function(dbPost) {
-        res.sendFile(path.join(__dirname, "/app/public/about.html"));
-      });
-  });
-  
-
-  // Add sequelize code to delete a book
-  app.delete("/api/book/:id", function(req, res) {
-
-  });
-
-};
+module.exports = router;
