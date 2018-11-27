@@ -4,7 +4,8 @@
 
 // Dependencies
 // =============================================================
-var Book = require("../models/book.js");
+var db = require("../models");
+var path = require("path");
 
 
 // Routes
@@ -13,11 +14,6 @@ module.exports = function(app) {
 
   // Add sequelize code to get all books and return them as JSON
   app.get("/api/all", function(req, res) {
-
-  });
-
-  // Add sequelize code to get a specific book and return it as JSON
-  app.get("/api/:book", function(req, res) {
 
   });
 
@@ -31,20 +27,18 @@ module.exports = function(app) {
 
   });
 
-  // Add sequelize code to get all "long" books (more than 150 pages) and return them as JSON
-  app.get("/api/books/long", function(req, res) {
-
-  });
-
-  // Add sequelize code to get all "short" books (150 pages or less) and return them as JSON
-  app.get("/api/books/short", function(req, res) {
-
-  });
-
   // Add sequelize code to create a book
-  app.post("/api/new", function(req, res) {
-
+  app.post("/api/newUser", function(req, res) {
+    db.Users.create({
+      username: req.body.username,
+      presenting: req.body.presenter,
+      category: req.body.category
+    })
+      .then(function(dbPost) {
+        res.sendFile(path.join(__dirname, "/app/public/about.html"));
+      });
   });
+  
 
   // Add sequelize code to delete a book
   app.delete("/api/book/:id", function(req, res) {
