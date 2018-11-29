@@ -1,11 +1,5 @@
-// Dependencies
-// =============================================================
-
-// Require the sequelize library
-var Sequelize = require("sequelize");
-// Require the connection to the database (connection.js)
-var sequelize = require("../config/connection");
 // Create a "User" model with the following configuration
+<<<<<<< HEAD
 var Users = sequelize.define("Users", {
 
     username: Sequelize.STRING,
@@ -14,9 +8,16 @@ var Users = sequelize.define("Users", {
 })
 
 // Sync model with DB
+=======
+module.exports = function(sequelize, DataTypes) {
+    var Users = sequelize.define("Users", {
+>>>>>>> a656a7cb0b44284235a00858cbc9ebaa6e882709
 
-Users.sync();
+        username: {type: DataTypes.STRING},
+        presenting: {type: DataTypes.BOOLEAN},
+        category: {type: DataTypes.STRING}
+    });
+    return Users;
+}
 
-// Export the book model for other files to use
 
-module.exports = Users;
