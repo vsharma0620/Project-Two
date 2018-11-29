@@ -3,7 +3,16 @@
 }
 
 /* Sign-In Form */
-body#LoginForm{ background-image: url("/images/205799f0df5cd0d.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
+body{ 
+  background-image: url("../../images/205799f0df5cd0d.jpg");
+  background-repeat:no-repeat; 
+  background-position:center; 
+  background-size:cover; 
+  padding:10px;}
+
+#loginForm{
+  opacity: 0;
+}
 
 .form-heading { color:#fff; font-size:23px;}
 .panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
@@ -34,8 +43,8 @@ body#LoginForm{ background-image: url("/images/205799f0df5cd0d.jpg"); background
   text-decoration: underline;
 }
 .login-form  .btn.btn-primary {
-  background: #f0ad4e none repeat scroll 0 0;
-  border-color: #f0ad4e;
+  background: #ca1c42 none repeat scroll 0 0;
+  border-color: #ca1c42;
   color: #ffffff;
   font-size: 14px;
   width: 100%;
@@ -52,7 +61,7 @@ body#LoginForm{ background-image: url("/images/205799f0df5cd0d.jpg"); background
   margin: auto;
 }
 .login-form .btn.btn-primary.reset {
-  background: #ff9900 none repeat scroll 0 0;
+  background: Navy none repeat scroll 0 0;
 }
 .back { text-align: left; margin-top:10px;}
 .back a {color: #444444; font-size: 13px;text-decoration: none;}

@@ -4,7 +4,7 @@
 
 // Dependencies
 // =============================================================
-var db = require("../models");
+var db = require("../models/user.js");
 var path = require("path");
 
 
@@ -29,6 +29,7 @@ module.exports = function(app) {
 
   // Add sequelize code to create a book
   app.post("/api/newUser", function(req, res) {
+    console.log("route is hit")
     db.Users.create({
       username: req.body.username,
       presenting: req.body.presenter,

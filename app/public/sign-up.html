@@ -1,20 +1,16 @@
-<link href="/assets/css/styles.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<!DOCTYPE HTML>
 
 <html>
-
-<html>
-
-<head>
-
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!------ Include the above in your HEAD tag ---------->
-</head>
-
+  <head>
+    <title>Sign-Up</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css"/>
+    <!------ Include the above in your HEAD tag ---------->
+  </head>
 <body id="LoginForm">
   <div class="container">
     <div class="login-form">
@@ -25,7 +21,7 @@
         </div>
         <form id="Login">
           <div class="form-group">
-            <input type="username" class="form-control" id="inputUsername" placeholder="Username">
+            <input type="username" class="form-control" id="username" placeholder="Username">
           </div>
           <form method="post">
             <p>Choose a category</p>
@@ -45,7 +41,7 @@
             <input type="radio" name="yes_no">No</input>
             </p>
             </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
         </form>
       </div>
     </div>

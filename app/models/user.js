@@ -6,7 +6,7 @@ var Sequelize = require("sequelize");
 // Require the connection to the database (connection.js)
 var sequelize = require("../config/connection");
 // Create a "User" model with the following configuration
-var Users = sequelize.define("books", {
+var Users = sequelize.define("Users", {
 
     username: Sequelize.STRING,
     presenting: Sequelize.BOOLEAN,
