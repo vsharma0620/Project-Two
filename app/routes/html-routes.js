@@ -19,6 +19,7 @@ var router = express.Router();
   });
 
   // add route loads the add.html page, where users can enter new books to the db
+
   router.get("/add", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/add.html"));
   });
@@ -37,6 +38,7 @@ var router = express.Router();
   router.get("/long", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/long.html"));
   });
+
 
 
   module.exports = router;
