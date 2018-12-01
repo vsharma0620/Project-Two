@@ -9,6 +9,17 @@ var router = express.Router();
 
 
 // Routes
+// ============================================================
+  // Each of the below routes just handles the HTML p
+  router.get("/", function(req, res) {
+    res.render("index")
+  });
+
+  router.get("/signup", function(req, res) {
+    res.render("signup")
+  });
+
+
 
   // add route loads the add.html page, where users can enter new books to the db
 

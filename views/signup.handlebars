@@ -1,0 +1,53 @@
+<div class="login-form">
+  <div class="main-div">
+    <div class="panel">
+      <h2>Sign Up</h2>
+      <p>Please enter your Username:{{users.username}}</p>
+    </div>
+    <form id="Login">
+      <div class="form-group">
+        <input type="text" class="form-control" id="username" placeholder="Username">
+      </div>
+      <form method="post">
+        <p>Choose a category:</p>
+        <select name="Categories" id="category">
+          <option value="comedy">Comedy</option>
+          <option value="poetry">Poetry</option>
+          <option value="vent">Vent</option>
+          <option value="music">Music</option>
+        </select>
+      </form>
+
+      <ul>
+        {{!-- {{#each Users}}
+        <li>
+          <p>username: {{users.username}}</p>
+          <p>presenting: {{pet}}</p>
+          <p>category: {{Users.category}}</p>
+        </li>
+      </ul> --}}
+
+
+      {{!-- <div id="presenter" class="entry">
+        {{#if presenter}}
+        <h1>{{msg}}</h1>
+        {{else}}
+        <h1>{{msg}}</h1>
+        {{/if}}
+      </div> --}}
+
+
+      <div id="presenter" , class="entry">
+        <label for="yes_no_radio">Are you a presenter?</label>
+        <p>
+          <input type="radio" name="yes_no" value= "yes" checked>Yes</input>
+        </p>
+        <p>
+          <input type="radio" name="yes_no" value= "no">No</input>
+        </p>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
+    </form>
+  </div>
+</div>
