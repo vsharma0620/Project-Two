@@ -1,19 +1,35 @@
 // Create a "User" model with the following configuration
 
-var Users = sequelize.define("Users", {
-
-    username: Sequelize.STRING,
-    presenting: Sequelize.BOOLEAN,
-    category: Sequelize.STRING,
-})
-
 module.exports = function(sequelize, DataTypes) {
     var Users = sequelize.define("Users", {
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
 
+        presenting: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
 
-        username: {type: DataTypes.STRING},
-        presenting: {type: DataTypes.BOOLEAN},
-        category: {type: DataTypes.STRING}
+        category: {
+            type: DataTypes.STRING
+        },
+
+        //status is 0 (viewer), 1 (ondeck), or 2 (presenter)
+        status: {
+            type: DataTypes.INT,
+            allowNull: false,
+            defaultValue: 0,
+            validate: {min: 0, max: 2}
+        },
+
+        //helps select users that have not already presented
+        hasPresented: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
+        }
     });
     return Users;
 }
