@@ -14,6 +14,7 @@ canvas, details, embed, figure, figcaption,
 footer, header, hgroup, menu, nav, output, ruby,
 section, summary, time, mark, audio, video {
 	margin: 0;
+	color: #181920;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
@@ -60,12 +61,13 @@ input::-moz-focus-inner {
 	padding: 0;
 }
 
-input, select, textarea {
+/* input, select, textarea {
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	-ms-appearance: none;
 	appearance: none;
-}
+	
+} */
 
 /* Basic */
 
@@ -1427,7 +1429,7 @@ input, select, textarea {
 	#banner {
 		background-attachment: fixed;
 		/* background-color: #272833; */
-		background-image: url("../../images/mic.jpg");
+		background-image: url("/images/mic.jpg");
 		background-position: center center;
 		background-size: cover;
 		box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.25);
@@ -1470,21 +1472,6 @@ input, select, textarea {
 			z-index: 1;
 		}
 
-			/* #banner .content header {
-				display: inline-block;
-				vertical-align: middle;
-			}
-
-				#banner .content header h2 {
-					font-size: 2.5em;
-					margin: 0;
-				}
-
-				#banner .content header p {
-					margin: 0.5em 0 0 0;
-					top: 0;
-				} */
-
 			#banner .image {
 				border-radius: 100%;
 				display: inline-block;
@@ -1507,7 +1494,7 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		background: #272833;
+		/* background: #272833;
 		padding: 6em 0;
 		text-align: center;
 	}
@@ -1555,7 +1542,7 @@ input, select, textarea {
 
 				#footer .copyright li a {
 					color: inherit;
-				}
+				} */
 
 /* XLarge */
 
@@ -2035,7 +2022,7 @@ input, select, textarea {
 			.button {
 				padding: 0;
 			}
-
+	
 		/* Spotlight */
 
 			.spotlight .image.main {
