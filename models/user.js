@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
 
         //status is 0 (viewer), 1 (ondeck), or 2 (presenter)
         status: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 0,
             validate: {min: 0, max: 2}
