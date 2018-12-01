@@ -33,9 +33,13 @@ router.post("/api/newUser", function(req, res) {
 });
 
 
-// Add sequelize code to delete a book
-router.delete("/api/", function(req, res) {
-
+// Add sequelize code to delete user
+router.delete("/api/delete/:id", function(req, res) {
+  db.User.destroy({
+    where: {id: req.params.id}
+  }).then(function(result){
+    res.json(result);
+  });
 });
 
 module.exports = router;
