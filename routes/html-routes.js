@@ -13,10 +13,16 @@ var router = express.Router();
 // ============================================================
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-  // index route loads view.html
+  //home & signup handelbars
   router.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/view.html"));
+    res.render("index")
   });
+
+  router.get("/signup", function(req, res) {
+    res.render("signup")
+  });
+
+
 
   // add route loads the add.html page, where users can enter new books to the db
 
