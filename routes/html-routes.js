@@ -3,42 +3,39 @@
 // *********************************************************************************
 
 // Dependencies
-// =============================================================
-var path = require("path");
+// ============================================================
 var express = require("express");
 var router = express.Router();
+
+var db = require("../models");
 
 
 // Routes
 // ============================================================
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-  // index route loads view.html
+  // index route loads homepage which routes to sign-up automatically
   router.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/view.html"));
+    res.render("index");
   });
 
-  // add route loads the add.html page, where users can enter new books to the db
-
-  router.get("/add", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/add.html"));
+  //gets correct view based on user ID passed from local storage
+  router.get("/:id", function(req, res) {
+    db.Users.findOne({where: {id: req.params.id}})
+    .then(function(result) {
+      let status = result.status;
+      //audience view/ waiting room
+      if (status === 0) {
+        res.render("WaitingRoom");
+      } else if (status === 1) {
+        res.render("OnDeck");
+      } else if (status === 2) {
+        res.render("Presenter");
+      } else {
+        res.render("404");
+      }
+    })
   });
-
-  // all route loads the all.html page, where all books in the db are displayed
-  router.get("/all", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/all.html"));
-  });
-
-  // short route loads the short.html page, where short books in the db are displayed
-  router.get("/short", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/short.html"));
-  });
-
-  // long route loads the long.html page, where long books in the db are displayed
-  router.get("/long", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/long.html"));
-  });
-
 
 
   module.exports = router;
