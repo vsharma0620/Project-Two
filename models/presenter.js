@@ -16,7 +16,13 @@ module.exports = function(sequelize, DataTypes) {
         Audio: {
             type: DataTypes.BLOB,
             defaultValue: null
+        },
+
+        endtime: {
+            type: DataTypes.DATE,
+            defaultValue: null
         }
+
 
     });
     return Presenter;
