@@ -5,41 +5,39 @@
 // Dependencies
 // =============================================================
 var express = require("express");
+var path = require("path");
+
 
 // Sets up the Express App
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 8080;
-var db = require("./app/models");
-
-// Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+var db = require("./models");
 
 // Static directory
-app.use(express.static("app/public"));
+app.use(express.static("public"));
 
 
 //############ HANDLEBARS ###################
-// app.use(express.urlencoded({extended:true}));
-// app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
 
-// var exphbs = require("express-handlebars");
+var exphbs = require("express-handlebars");
 
-// app.engine("handlebars", exphbs({defaultLayout: "main"}));
-// app.set("view engine", "handlebars");
+app.engine("handlebars", exphbs({defaultLayout: "main"}));
+app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
-var api = require("./app/routes/api-routes.js")
-var html = require("./app/routes/html-routes");
+var api = require("./routes/api-routes.js")
+var html = require("./routes/html-routes");
 app.use(api);
 app.use(html);
 
 
 // Starts the server to begin listening
 // =============================================================
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
