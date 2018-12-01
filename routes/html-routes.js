@@ -3,7 +3,6 @@
 // *********************************************************************************
 
 // Dependencies
-// =============================================================
 var path = require("path");
 var express = require("express");
 var router = express.Router();
@@ -11,9 +10,7 @@ var router = express.Router();
 
 // Routes
 // ============================================================
-  // Each of the below routes just handles the HTML page that the user gets sent to.
-
-  //home & signup handelbars
+  // Each of the below routes just handles the HTML p
   router.get("/", function(req, res) {
     res.render("index")
   });
@@ -44,6 +41,7 @@ var router = express.Router();
   router.get("/long", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/long.html"));
   });
+
 
 
 
