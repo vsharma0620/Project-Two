@@ -19,6 +19,22 @@ var db = require("../models");
     res.render("index");
   });
 
+  router.get("/signup", function(req, res) {
+    res.render("signup");
+  });
+
+  router.get("/WaitingRoom", function(req, res) {
+    res.render("WaitingRoom");
+  });
+
+  router.get("/Presenter", function(req, res) {
+    res.render("Presenter");
+  });
+
+  router.get("/OnDeck", function(req, res) {
+    res.render("OnDeck");
+  });
+
   //gets correct view based on user ID passed from local storage
   router.get("/:id", function(req, res) {
     db.Users.findOne({where: {id: req.params.id}})
