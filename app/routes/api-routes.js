@@ -3,11 +3,7 @@
 // *********************************************************************************
 
 // Dependencies
-// =============================================================
-<<<<<<< HEAD
-var db = require("../models/user.js");
-=======
->>>>>>> a656a7cb0b44284235a00858cbc9ebaa6e882709
+
 var path = require("path");
 var db = require("../models");
 var express = require('express');
@@ -15,7 +11,6 @@ var router = express.Router();
 
 
 // Routes
-// =============================================================
 
 // Add sequelize code to get all books and return them as JSON
 router.get("/api/all", function(req, res) {
@@ -36,7 +31,6 @@ router.post("/api/newUser", function(req, res) {
     });
 });
 
-<<<<<<< HEAD
   // Add sequelize code to create a book
   app.post("/api/newUser", function(req, res) {
     console.log("route is hit")
@@ -50,9 +44,6 @@ router.post("/api/newUser", function(req, res) {
       });
   });
   
-=======
->>>>>>> a656a7cb0b44284235a00858cbc9ebaa6e882709
-
 // Add sequelize code to delete a book
 router.delete("/api/", function(req, res) {
 
