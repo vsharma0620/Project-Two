@@ -17,7 +17,7 @@ $("#submit-btn").on("click", function(event) {
     .then(function(data) {
       // Log the data we found
       console.log(data);
-      localStorage.setItem('user', JSON.stringify(newUser));
+      localStorage.setItem('user', JSON.stringify(newUser.id));
     });
 
 

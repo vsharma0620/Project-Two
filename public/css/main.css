@@ -1462,7 +1462,7 @@ input::-moz-focus-inner {
 		}
 
 		#banner .content {
-			display: inline-block;
+			display: inline-block; 
 			margin-right: 1%;
 			max-width: 95%;
 			padding: 6em;
