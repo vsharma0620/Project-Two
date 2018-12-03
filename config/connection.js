@@ -1,10 +1,10 @@
-// *********************************************************************************
-// CONNECTION.JS - THIS FILE INITIATES THE CONNECTION TO MYSQL
-// *********************************************************************************
 
-// Dependencies
-var Sequelize = require("sequelize");
+/* Controller sets the timer and modifies user status to
+determine the current presenter, onDeck and audience */
 
+
+var users = require("../js/user-sequelize");
+var moment = require("moment");
 // Creates mySQL connection using Sequelize
 var sequelize = new Sequelize("open_mic_db", "root", "mona12271", {
 
@@ -18,5 +18,14 @@ var sequelize = new Sequelize("open_mic_db", "root", "mona12271", {
   }
 });
 
-// Exports the connection for other files to use
-module.exports = sequelize;
+var controller = {
+    run: function() {
+        // performs every five minutes
+        setInterval(function(){
+            
+        }, 3000000);
+    }
+};
+
+
+module.exports = controller;

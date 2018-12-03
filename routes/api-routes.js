@@ -32,7 +32,7 @@ router.post("/api/newUser", function(req, res) {
   
     .then(function(dbPost) {
       console.log("Posted", dbPost);
-      res.render("WaitingRoom")
+      res.render("WaitingRoom");
     });
 });
 
@@ -74,6 +74,12 @@ router.get("api/status/:id", function(req,res) {
   .then(function(result){
     res.json(result);
   });
+});
+
+router.post("api/presenter/text", function(req, res) {
+  db.Presenter.update(
+    {},
+    {where: {id: 0}})
 })
 
 module.exports = router;

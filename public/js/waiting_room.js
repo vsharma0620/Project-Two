@@ -8,7 +8,7 @@ else {
 // console.log(id)
 
 function getUser(id) {
-    $.get("/user/" + id, function(data) {
+    $.get("/" + id, function(data) {
       console.log("Posts", data);
       posts = data;
       if (!posts || !posts.length) {
