@@ -10,23 +10,12 @@ if (category !== null) {
     event.preventDefault();
     console.log("button has been clicked");
 
-<<<<<<< HEAD
-  // Send an AJAX POST-request with jQuery
-  $.post("/api/newUser", newUser)
-    // On success, run the following code
-    .then(function(data) {
-      // Log the data we found
-      console.log(data);
-      localStorage.setItem('user', JSON.stringify(newUser.id));
-    });
-=======
     // Make a new user object
     var newUser = {
       username: $("#inputUsername").val().trim(),
       category: $("#category").val().trim(),
       presenter: $("#presenter").val().trim(),
     };
->>>>>>> 9c10b71d138acff255b3aee78821a7b08d8c14e8
 
     // Send an AJAX POST-request with jQuery
     $.post("/api/newUser", newUser)
