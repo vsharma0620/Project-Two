@@ -13,7 +13,7 @@ body{
 
 .form-heading { color:#fff; font-size:23px;}
 .panel h2{ color:black; font-size: 30px; margin:0 0 8px 0; font-weight: bold}
-.panel p { color:black; font-size:20px; margin-bottom:30px; line-height:24px; font-weight: }
+/* .panel p { color:black; font-size:20px; margin-bottom:30px; line-height:24px; font-weight: } */
 .login-form .form-control {
   background: #f7f7f7 none repeat scroll 0 0;
   border: 1px solid #d4d4d4;
@@ -37,6 +37,13 @@ body{
 #category {
   width: 20vh;
   text-align: center;
+}
+.dropdown-item {
+  text-align: center;
+  font-size: 15px;
+}
+.dropdown-header {
+  font-size: 20px;
 }
 
 .login-form .form-group {

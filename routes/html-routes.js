@@ -36,19 +36,19 @@ var db = require("../models");
   });
 
   //gets correct view based on user ID passed from local storage
-  router.get("/:id", function(req, res) {
+  router.get("/user/:id", function(req, res) {
     db.Users.findOne({where: {id: req.params.id}})
     .then(function(result) {
-      console.log(result.status);
-      // let status = result.status;
-      // //audience view/ waiting room
-      // if (status === 0) {
-      //   res.render("OnDeck");
-      // } else if (status === 2) {
-      //   res.render("Presenter");
-      // } else {
-      //   res.render("404");
-      // }
+      console.log(result);
+      let status = result.status;
+      //audience view/ waiting room
+      if (status === 0) {
+        res.render("OnDeck");
+      } else if (status === 2) {
+        res.render("Presenter");
+      } else {
+        res.render("404");
+      }
     })
   });
 

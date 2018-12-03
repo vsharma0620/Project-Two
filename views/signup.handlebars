@@ -2,7 +2,7 @@
   <div class="main-div">
     <div class="panel">
       <h2>Sign Up</h2>
-      <p>Please enter your Username:{{users.username}}</p>
+      <p>Please enter your Username:</p>
     </div>
 
     <form id="Login">
@@ -10,23 +10,31 @@
         <input type="text" class="form-control" id="username" placeholder="Username">
       </div>
 
-      <form method="post">
-        <p>Choose a category:</p>
-        <select name="Categories" id="category">
-          <option value="comedy">Comedy</option>
-          <option value="poetry">Poetry</option>
-          <option value="vent">Vent</option>
-          <option value="music">Music</option>
+      {{!-- <div class="form-group" id="category">
+        <label for="exampleFormControlSelect1">Category:</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+          <option>Comedy</option>
+          <option>Poetry</option>
+          <option>Vent</option>
+          <option>Music</option>
         </select>
-      </form>
+      </div> --}}
+
+<div class="form-group" id="category">
+  <h6 class="dropdown-header">Categories</h6>
+  <a class="dropdown-item" href="#">Comedy</a>
+  <a class="dropdown-item" href="#">Poetry</a>
+  <a class="dropdown-item" href="#">Music</a>
+  <a class="dropdown-item" href="#">Vent</a>
+</div>
 
       <div id="presenter" , class="entry">
         <label for="yes_no_radio">Are you a presenter?</label>
         <p>
-          <input type="radio" name="yes_no" value= "yes" checked>Yes</input>
+          <input type="radio" name="yes_no" value="yes" checked>Yes</input>
         </p>
         <p>
-          <input type="radio" name="yes_no" value= "no">No</input>
+          <input type="radio" name="yes_no" value="no">No</input>
         </p>
       </div>
 
@@ -34,3 +42,5 @@
     </form>
   </div>
 </div>
+
+<script src="/js/add.js" type="text/javascript"></script>
