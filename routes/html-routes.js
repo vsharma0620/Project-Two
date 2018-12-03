@@ -42,7 +42,7 @@ var db = require("../models");
       let status = result.status;
       //audience view/ waiting room
       if (status === 0) {
-        res.render("WaitingRoom");
+        res.json(result);
       } else if (status === 1) {
         res.render("OnDeck");
       } else if (status === 2) {

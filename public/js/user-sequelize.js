@@ -87,6 +87,24 @@ var seqs = {
         return result;
       });
     });
+  },
+
+  updatePresenter: function(user, type, time) {
+    db.Presenter.update(
+      { presenter: user.username,
+        type: type,
+        endtime: time},
+      {where: {id: 0}}
+    ).then(function(result){
+      return result;
+    });
+  },
+
+  numUsers: function() {
+    db.Users.findAll({})
+    .then(function(results){
+      return results.length;
+    });
   }
 
 

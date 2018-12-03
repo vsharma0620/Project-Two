@@ -7,6 +7,11 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
         },
 
+        type: {
+            type: DataTypes.STRING,
+            values: ["Text", "Audio"]
+        },
+
         Text: {
             type: DataTypes.TEXT,
             defaultValue: null
@@ -21,6 +26,16 @@ module.exports = function(sequelize, DataTypes) {
         endtime: {
             type: DataTypes.DATE,
             defaultValue: null
+        },
+
+        snaps: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0
+        },
+
+        rejects: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0
         }
 
 
