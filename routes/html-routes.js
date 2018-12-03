@@ -3,48 +3,56 @@
 // *********************************************************************************
 
 // Dependencies
-// =============================================================
-var path = require("path");
+// ============================================================
 var express = require("express");
 var router = express.Router();
+
+var db = require("../models");
 
 
 // Routes
 // ============================================================
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-  //home & signup handelbars
+  // index route loads homepage which routes to sign-up automatically
   router.get("/", function(req, res) {
-    res.render("index")
+    res.render("index");
   });
 
   router.get("/signup", function(req, res) {
-    res.render("signup")
+    res.render("signup");
   });
 
-
-
-  // add route loads the add.html page, where users can enter new books to the db
-
-  router.get("/add", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/add.html"));
+  router.get("/WaitingRoom", function(req, res) {
+    res.render("WaitingRoom");
   });
 
-  // all route loads the all.html page, where all books in the db are displayed
-  router.get("/all", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/all.html"));
+  router.get("/Presenter", function(req, res) {
+    res.render("Presenter");
   });
 
-  // short route loads the short.html page, where short books in the db are displayed
-  router.get("/short", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/short.html"));
+  router.get("/OnDeck", function(req, res) {
+    res.render("OnDeck");
   });
 
-  // long route loads the long.html page, where long books in the db are displayed
-  router.get("/long", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/long.html"));
+  //gets correct view based on user ID passed from local storage
+  router.get("/user/:id", function(req, res) {
+    db.Users.findOne({where: {id: req.params.id}})
+    .then(function(result) {
+      console.log(result);
+      let status = result.status;
+      //audience view/ waiting room
+      if (status === 0) {
+        res.json(result);
+      } else if (status === 1) {
+        res.render("OnDeck");
+      } else if (status === 2) {
+        res.render("Presenter");
+      } else {
+        res.render("404");
+      }
+    })
   });
-
 
 
   module.exports = router;

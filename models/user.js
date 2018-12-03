@@ -21,10 +21,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 0,
-            validate: {
-                min: 0,
-                max: 2
-            }
+            validate: {min: 0, max: 2}
         },
 
         //helps select users that have not already presented
@@ -36,3 +33,5 @@ module.exports = function (sequelize, DataTypes) {
     });
     return Users;
 }
+
+       
