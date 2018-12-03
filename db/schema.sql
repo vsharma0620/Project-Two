@@ -1,2 +1,1 @@
-DROP DATABASE IF EXISTS open_mic_db;
 CREATE DATABASE open_mic_db;
