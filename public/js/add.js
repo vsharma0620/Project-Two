@@ -17,6 +17,7 @@ if (category !== null) {
       username: $("#username").val().trim(),
       category: $(this).find(':selected').val(),
       presenter: presBool,
+      status: 0
     };
 
     console.log(newUser);
