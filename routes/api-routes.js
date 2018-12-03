@@ -29,6 +29,7 @@ router.post("/api/newUser", function(req, res) {
     presenting: req.body.presenter,
     category: req.body.category
   })
+  
     .then(function(dbPost) {
       console.log("Posted", dbPost);
       res.render("WaitingRoom");

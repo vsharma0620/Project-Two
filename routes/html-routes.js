@@ -39,6 +39,7 @@ var db = require("../models");
   router.get("/user/:id", function(req, res) {
     db.Users.findOne({where: {id: req.params.id}})
     .then(function(result) {
+      console.log(result);
       let status = result.status;
       //audience view/ waiting room
       if (status === 0) {
