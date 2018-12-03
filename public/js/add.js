@@ -21,7 +21,7 @@ if (category !== null) {
 
     console.log(newUser);
 
-    Send an AJAX POST-request with jQuery
+    //Send an AJAX POST-request with jQuery
     $.post("/api/newUser", newUser)
       // On success, run the following code
       .then(function (data) {
