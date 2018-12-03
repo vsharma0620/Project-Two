@@ -1,5 +1,3 @@
-
-//after 5second the signup page will be shown 
 $(document).ready(function(){
   setTimeout(() => {
     $(location).attr("href", window.location.href + "signup")
@@ -8,13 +6,11 @@ $(document).ready(function(){
 });
 
 
-
 // $(document).ready(function() {
 
-//   $('a[href$= view/signup]').click(function() {
+//   $('a[href$= public/images/mic.jpg]').click(function() {
     
-
-//     window.location.href= 'http://sample.com/products.php/#shoes';
+//     window.location.href= 'public/images/mic.jpg';
 
 //   });
 // });
