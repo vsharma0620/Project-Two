@@ -36,7 +36,7 @@ var db = require("../models");
   });
 
   //gets correct view based on user ID passed from local storage
-  router.get("/:id", function(req, res) {
+  router.get("/user/:id", function(req, res) {
     db.Users.findOne({where: {id: req.params.id}})
     .then(function(result) {
       let status = result.status;

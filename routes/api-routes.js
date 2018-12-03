@@ -30,8 +30,8 @@ router.post("/api/newUser", function(req, res) {
     category: req.body.category
   })
     .then(function(dbPost) {
-      console.log("Posted");
-      res.sendFile(path.join(__dirname, "../public/view.html"));
+      console.log("Posted", dbPost);
+      res.render("WaitingRoom");
     });
 });
 
@@ -73,6 +73,12 @@ router.get("api/status/:id", function(req,res) {
   .then(function(result){
     res.json(result);
   });
+});
+
+router.post("api/presenter/text", function(req, res) {
+  db.Presenter.update(
+    {},
+    {where: {id: 0}})
 })
 
 module.exports = router;
