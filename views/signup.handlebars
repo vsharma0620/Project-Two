@@ -2,34 +2,44 @@
   <div class="main-div">
     <div class="panel">
       <h2>Sign Up</h2>
-      <p>Please enter your Username:</p>
     </div>
 
     <form id="Login">
       <div class="form-group">
+        <label for="username">Please enter your Username:</label>
         <input type="text" class="form-control" id="username" placeholder="Username">
       </div>
 
+      <br>
 
-<div class="form-group" id="category">
-  <h6 class="dropdown-header">Categories</h6>
-  <a class="dropdown-item" href="#">Comedy</a>
-  <a class="dropdown-item" href="#">Poetry</a>
-  <a class="dropdown-item" href="#">Music</a>
-  <a class="dropdown-item" href="#">Vent</a>
-</div>
-
-      <div id="presenter" , class="entry">
-        <label for="yes_no_radio">Are you a presenter?</label>
-        <p>
-          <input type="radio" name="yes_no" value="yes" checked>Yes</input>
-        </p>
-        <p>
-          <input type="radio" name="yes_no" value="no">No</input>
-        </p>
+      <div class="form-group" id="category">
+        <label for="category">Category</label>
+        <select class="form-control">
+          <option value="Comedy">Comedy</option>
+          <option value="Poetry">Poetry</option>
+          <option value="Music">Music</option>
+          <option value="Vent">Vent</option>
+        </select>
       </div>
 
-      <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
+      <br>
+
+      <div class="form-check" id="presenter">
+        <input class="form-check-input" type="radio" name="radios" id="presenter" value="presenter" checked>
+        <label class="form-check-label" for="present">
+          I want to present!
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="radios" id="listen" value="listen">
+        <label class="form-check-label" for="listen">
+          I just want to listen
+        </label>
+      </div>
+
+      <br>
+
+      <button type="submit" class="btn btn-primary" id="submit-btn">Enter!</button>
     </form>
   </div>
 </div>
