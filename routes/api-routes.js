@@ -32,7 +32,7 @@ router.post("/api/newUser", function(req, res) {
   
     .then(function(dbPost) {
       console.log("Posted", dbPost);
-      res.render("WaitingRoom");
+      res.json(dbPost);
     });
 });
 
@@ -78,8 +78,23 @@ router.get("api/status/:id", function(req,res) {
 
 router.post("api/presenter/text", function(req, res) {
   db.Presenter.update(
-    {},
+    {Text: req.body.text},
     {where: {id: 0}})
 })
 
 module.exports = router;
+
+
+
+router.delete('/users/:id',function(req, res, next){
+  console.log('DELETING PRESENTER')
+  // db.Presenter.findById(req.params.id, function(err, docket){
+  //   docket.remove(function(err){
+  //     res.redirect('/dockets');
+  //   });
+  // });
+});
+// router.post('/id',function(req, res, next) {
+//   if(req.query.method == delete) {Docket.findBYId(id,...docket.remove,...}
+//     else{// if the delete is not specefic use this routh as you normally do})}
+// })

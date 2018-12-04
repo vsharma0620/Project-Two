@@ -3,4 +3,6 @@ $(document).ready(function(){
     $(location).attr("href", window.location.href + "signup")
   }, 5000);
   
-})
+});
+
+
