@@ -28,7 +28,8 @@ if (category !== null) {
       .then(function (data) {
         // Log the data we found
         console.log(data);
-        localStorage.setItem('user', JSON.stringify(newUser));
+        localStorage.setItem('user', JSON.stringify(data));
+        location.href = "/WaitingRoom";
      });
 
     // Empty each input box by replacing the value with an empty string
