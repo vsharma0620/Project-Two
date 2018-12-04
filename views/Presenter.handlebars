@@ -7,6 +7,15 @@
     <button class="btn btn-light btn-lg" id="btnClearRec"> <i class="fas fa-eraser"></i> Clear</button>
     <button class="btn btn-light btn-lg" id="btnSumbitRec"><i class="fas fa-cloud-upload-alt"></i> Submit to Server</button>
   </div>
+
+  {{!-- delete --}}
+  <form name="delete-docket-form" action="/{{this.id}}" method="delete">
+    <div class="form-submit">
+        <input type="submit" value="Delete my docket" />
+    </div>
+  </form>
+
+
 </div>
 <!--View Mandatory Scripts -->
 <script src="js/breakpoints.min.js"></script>
