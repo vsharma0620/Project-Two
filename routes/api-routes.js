@@ -32,7 +32,7 @@ router.post("/api/newUser", function(req, res) {
   
     .then(function(dbPost) {
       console.log("Posted", dbPost);
-      res.render("WaitingRoom");
+      res.json(dbPost);
     });
 });
 
