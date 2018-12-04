@@ -78,7 +78,7 @@ router.get("api/status/:id", function(req,res) {
 
 router.post("api/presenter/text", function(req, res) {
   db.Presenter.update(
-    {},
+    {Text: req.body.text},
     {where: {id: 0}})
 })
 

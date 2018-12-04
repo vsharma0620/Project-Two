@@ -124,8 +124,8 @@ pitch.onchange = function() {
 // On PullFromServer, grabs value from server and updates the view
 
 function pullDown(){
-    $.get("/api/speechRecognitionMain", function(data){
-        pullDown = data;
+    $.get("/api/presenter/text", function(data){
+        var pullDown = "data";
         console.log(pullDown);
         //populate the textbox with the data from the server.
         $("#text-input").innerHTML = pullDown;
