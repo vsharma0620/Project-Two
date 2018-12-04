@@ -105,8 +105,7 @@ var seqs = {
     .then(function(results){
       return results.length;
     });
-  }
-
+  },
 
 };
 
