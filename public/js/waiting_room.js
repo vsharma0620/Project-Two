@@ -18,7 +18,13 @@ function getUser(id) {
       posts = data;
       if (!posts || !posts.length) {
         console.log("Nothing to Render");
-      }
+      } else {
+          if (data === "audience") {
+            console.log("stay");
+          } else {
+            location.href = "/"+data;
+          }
+      } 
     });
 }
 
