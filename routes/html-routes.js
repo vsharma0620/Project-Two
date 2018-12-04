@@ -15,6 +15,7 @@ var db = require("../models");
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
   // index route loads homepage which routes to sign-up automatically
+  
   router.get("/", function(req, res) {
     res.render("index");
   });
@@ -39,17 +40,17 @@ var db = require("../models");
   router.get("/user/:id", function(req, res) {
     db.Users.findOne({where: {id: req.params.id}})
     .then(function(result) {
-      console.log(result);
+      console.log(result.status);
       let status = result.status;
       //audience view/ waiting room
       if (status === 0) {
-        res.json(result);
+        res.json("audience");
       } else if (status === 1) {
-        res.render("OnDeck");
+        res.json("OnDeck");
       } else if (status === 2) {
-        res.render("Presenter");
+        res.json("Presenter");
       } else {
-        res.render("404");
+        res.json("404");
       }
     })
   });

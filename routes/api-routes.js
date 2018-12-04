@@ -39,7 +39,7 @@ router.post("/api/newUser", function(req, res) {
 
 // Add sequelize code to delete user
 router.delete("/api/delete/:id", function(req, res) {
-  db.User.destroy({
+  db.Users.destroy({
     where: {id: req.params.id}
   }).then(function(result){
     res.json(result);
@@ -81,5 +81,27 @@ router.post("api/presenter/text", function(req, res) {
     {Text: req.body.text},
     {where: {id: 0}})
 })
+router.delete("/api/presenter/:id", function(req, res) {
+  db.Presenter.destroy({
+    where: {id: req.params.id}
+  }).then(function(result){
+    res.json(result);
+  });
+});
 
 module.exports = router;
+
+
+
+// router.delete('/users/:id',function(req, res, next){
+//   console.log('DELETING PRESENTER')
+//   db.Presenter.find({where:{id:req.params.id}}).then(function(data){
+//     //docket.destroy({where:{id:docket.id}}).then(function(err,data){
+//       res.send();
+//     //})
+//   });
+// });
+// router.post('/id',function(req, res, next) {
+//   if(req.query.method == delete) {Docket.findBYId(id,...docket.remove,...}
+//     else{// if the delete is not specefic use this routh as you normally do})}
+// })
