@@ -8,6 +8,7 @@ else {
 // console.log(id)
 
 function getUser(id) {
+    console.log("called");
     $.get("/" + id, function(data) {
       console.log("Posts", data);
       posts = data;
