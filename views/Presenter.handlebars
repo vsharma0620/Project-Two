@@ -2,14 +2,20 @@
   <div class="microphone-button">
     <h1 class="microphone-button"><strong>Click the Microphone to start recording!</strong></h1>
 
+    <div class = "wordsContainer" contenteditable="false"></div>
+
     <button class="btn btn-light btn-lg" id="btnStartRec"><i class="fa fa-microphone"></i> Start</button>
     <button class="btn btn-light btn-lg" id="btnEndRec"><i class="fa fa-stop-circle"></i> End</button>
     <button class="btn btn-light btn-lg" id="btnClearRec"> <i class="fas fa-eraser"></i> Clear</button>
     <button class="btn btn-light btn-lg" id="btnSumbitRec"><i class="fas fa-cloud-upload-alt"></i> Submit to Server</button>
   </div>
 </div>
+
 <!--View Mandatory Scripts -->
 <script src="js/breakpoints.min.js"></script>
 <script src="js/main.js"></script>
 <!-- Custom Script -->
 <script src="js/Presenter.js" type="text/javascript"></script>
+
+<!-- link to JS -->
+<script src = "js/speechRecognitionMain.js" type = "text/javascript"></script>
