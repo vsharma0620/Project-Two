@@ -2,4 +2,3 @@
 DROP DATABASE IF EXISTS open_mic_db;
 -- Creates the "blogger" database --
 CREATE DATABASE open_mic.db;
-
