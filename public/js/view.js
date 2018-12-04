@@ -6,11 +6,3 @@ $(document).ready(function(){
 });
 
 
-// $(document).ready(function() {
-
-//   $('a[href$= public/images/mic.jpg]').click(function() {
-    
-//     window.location.href= 'public/images/mic.jpg';
-
-//   });
-// });

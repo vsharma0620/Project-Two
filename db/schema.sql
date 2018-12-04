@@ -1,1 +1,2 @@
 CREATE DATABASE open_mic_db;
+DROP TABLE Users;
