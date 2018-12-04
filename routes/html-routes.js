@@ -15,6 +15,7 @@ var db = require("../models");
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
   // index route loads homepage which routes to sign-up automatically
+  
   router.get("/", function(req, res) {
     res.render("index");
   });
