@@ -111,11 +111,7 @@ body{
   align-self: center;
   min-height: 100vh;
 }
-#waiting-music {
-  text-align: center;
-  color: #c9b9b9;
-  font-size: 50px;
-}
+
 
 /*On-Deck*/
 .OnDeck-body {
@@ -141,4 +137,16 @@ body{
 		position: relative;
 		text-align: center;
 		z-index: 21;
-	}
+  }
+  
+  #waiting-music {
+    text-align: center;
+    color: #c9b9b9;
+    font-size: 50px;
+  }
+
+.wordsContainer, #rate, #pitch {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
