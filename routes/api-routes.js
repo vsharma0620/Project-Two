@@ -100,6 +100,10 @@ router.delete("/api/presenter/:id", function(req, res) {
   });
 });
 
+router.put("/live/audio", function(req, res) {
+  console.log("chunk", req.body);
+});
+
 module.exports = router;
 
 
