@@ -8,8 +8,8 @@ $(function() {
         .then(mediaStream => {
             //chunks audio data and sends it to the server
             console.log(mediaStream);
-            const recorder = new MediaStreamRecorder(mediaStream, {type: "audio/*", timeSlice: 6000});
-
+            const recorder = new MediaStreamRecorder(mediaStream, {type: "audio/*", timeSlice: 500});
+            recorder.start({timeSlice: 500});
             recorder.ondataavailable = function(chunk) {
                 $.put("/live/audio", chunk)
                 .then(function(result){
