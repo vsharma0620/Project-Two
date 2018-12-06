@@ -30,7 +30,7 @@ var controller = {
         
         }, 3000000);
     
-}
+      }
 };
 
 //use moment to find current time and add five minutes to it. This will be set as the end time.
