@@ -88,8 +88,11 @@ function speak() {
         };
         
         // Set Pitch and Rate
-        speakText.rate = rate.value;
-        speakText.pitch = pitch.value;
+        //speakText.rate = rate.value;
+        speakText.rate = 1;
+
+        //speakText.pitch = pitch.value;
+        speakText.pitch = 1;
 
         //Speak
         synth.speak(speakText);
@@ -124,18 +127,35 @@ pitch.onchange = function() {
 // On PullFromServer, grabs value from server and updates the view
 
 function pullDown(){
-    $.get("/api/presenter/text", function(data){
-        var pullDown = "data";
-        console.log(pullDown);
+    $.ajax({
+        url: "/api/presenter/text",
+        type: "GET"
+    }).then(function(data){
+        var pullDown = data;
+        console.log(data)
+        //console.log(pullDown);
         //populate the textbox with the data from the server.
-        $("#text-input").innerHTML = pullDown;
-
+        $("#text-input").val(data);
     });
 }
 
 $("#btnPullSyn").click(function(){
     pullDown();
 });
+
+$("#btnClearSyn").click(function(){
+   
+})
+
+$("#btnStartSyn").click(function(){
+
+})
+
+$("#btnStopSyn").click(function(){
+    
+})
+
+
 
 $(document).ready(function(){
     getVoices();

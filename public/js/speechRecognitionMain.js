@@ -36,13 +36,19 @@ function clearText() {
 // function to submit the data to the server.
 function submitToServer(event){
     event.preventDefault();
+    console.log("test test test");
     var speech = {
         text: finalTranscript
         //text: "Brian is a wiz"
     }
-    $.post("api/presenter/text", speech)
-    console.log(speech)
-    console.log("Submitted to Server!")
+    $.ajax({
+        url: "api/presenter/text", 
+        type: "POST",
+        data: speech
+        }).then(function(data){
+            console.log(data);
+            console.log("Submitted to Server!");
+    });
 };
 
 
@@ -57,7 +63,6 @@ recognition.onresult = (event) => {
 
             //aim to push the currentTranscript on to the SQL Server
 
-<<<<<<< HEAD
         //aim to push the currentTranscript on to the SQL Server
         
         //finalTranscript = transcript;
@@ -74,25 +79,8 @@ $(document).ready(function(){
     $("#btnStartRec").click(startRecognition); // button to start speech recognition
     $("#btnEndRec").click(stopRecognition); // button to stop speech recognition
     $("#btnClearRec").click(clearText); //button to clear the display 
-     $("#btnSubmitRec").click(submitToServer); // button to push the final transcript to the server
+    //$("#btnSubmitRec").click(console.log("test test")); // button to push the final transcript to the server
+    $("#btnSubmitRec").click(submitToServer); // button to push the final transcript to the server
 });
 
     
-=======
-            //finalTranscript = transcript;
-            console.log("Current Transcript: " + currentTranscript);
-
-            $(".wordsContainer").append(currentTranscript + "<br>" + "<br>")
-        } else {
-            interimTranscript += transcript; // interimTranscript is not final
-        }
-    }
-}
-
-$(document).ready(function () {
-    $("#btnStartRec").click(startRecognition); // button to start speech recognition
-    $("#btnEndRec").click(stopRecognition); // button to stop speech recognition
-    $("#btnClearRec").click(clearText); //button to clear the display 
-    $("#btnSubmitRec").click(submitToServer); // button to push the final transcript to the server
-});
->>>>>>> 3967b3da738aeb59e5ce6684cc0ac2b9db214898
