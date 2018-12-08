@@ -12,6 +12,10 @@ module.exports = function(sequelize, DataTypes) {
             values: ["Text", "Audio"]
         },
 
+        category: {
+            type: DataTypes.STRING
+        },
+
         Text: {
             type: DataTypes.TEXT,
             defaultValue: null
