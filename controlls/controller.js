@@ -97,12 +97,12 @@ var controller = {
                                             //I need to set the presenter after everyone swaps and then set that //username to the current presenster
             
                                             // performs every five minutes
-                                        }, 6000);
-                                    }, 3000);
+                                        }, 300000);
+                                    }, 300000);
                                 })
                             })
                             
-                         }, 12000);
+                         }, 120000);
                     });
                 }
             });
