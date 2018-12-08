@@ -14,15 +14,7 @@ var seqs = {
         return dbPost;
       });
   },
-
-  //gets current active presenter
-  getPresenter: function(cb) {
-    db.Users.findOne({
-      where: {status: 2}
-    }).then(function(result) {
-      cb(result);
-    });
-  },
+  
 
   //gets current on-deck user
   getOnDeck: function() {
@@ -61,18 +53,6 @@ var seqs = {
         //selects random user that wants to present and makes them on deck
           cb(result);
       });
-    });
-  },
-
-  updatePresenter: function(user, time) {
-    db.Presenter.update(
-      { presenter: user.username,
-        category: user.category,
-        type: user.type,
-        endtime: time},
-      {where: {id: 1}}
-    ).then(function(result){
-      return result;
     });
   },
 
