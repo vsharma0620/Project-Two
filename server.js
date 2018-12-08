@@ -34,6 +34,10 @@ var html = require("./routes/html-routes");
 app.use(api);
 app.use(html);
 
+//Controller
+// =============================================================
+var controller = require("./controlls/controller.js");
+controller.run();
 
 // Starts the server to begin listening
 // =============================================================
