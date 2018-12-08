@@ -1,6 +1,6 @@
 /*User-Sequelize provides database functions for the user-table
 to be used in the controller file (not all functions used) */
-var db = require("../models");
+var db = require("../../models");
 
 var seqs = {
   //adds a given user object to the 
@@ -16,11 +16,11 @@ var seqs = {
   },
 
   //gets current active presenter
-  getPresenter: function() {
+  getPresenter: function(cb) {
     db.Users.findOne({
       where: {status: 2}
     }).then(function(result) {
-      return result;
+      cb(result);
     });
   },
 
@@ -41,26 +41,14 @@ var seqs = {
       return result;
     });
   },
-
-  //get all users that wish to present
-  getNotPresented: function(cb){
-    db.Users.findAll({
-      where: {
-        presenting: true,
-        status: 0,
-        hasPresented: false
-      }
-    }).then(function(result) {
-      cb(result);
-    });
-  },
-
+  
   //Swaps presenter to Audience and on deck to presenter
-  swap: function(){
+  swap: function(cb){
     //makes presenter audience
     db.Users.update(
       {
         status: 0,
+
         hasPresented: true
       },
       {where: {status: 2}}
@@ -71,39 +59,27 @@ var seqs = {
         {where: {status: 1}}
       ).then(function(result) {
         //selects random user that wants to present and makes them on deck
-        readyOnDeck();
-      })
-    });
-  },
-
-  //selects random user that wants to present and makes them on deck
-  readyOnDeck: function() {
-    getNotPresented(function(users) {
-      let rand = Math.floor(Math.random()*users.length);
-      db.Users.update(
-        {status: 1},
-        {where: {id: rand}}
-      ).then(function(result) {
-        return result;
+          cb(result);
       });
     });
   },
 
-  updatePresenter: function(user, type, time) {
+  updatePresenter: function(user, time) {
     db.Presenter.update(
       { presenter: user.username,
-        type: type,
+        category: user.category,
+        type: user.type,
         endtime: time},
-      {where: {id: 0}}
+      {where: {id: 1}}
     ).then(function(result){
       return result;
     });
   },
 
-  numUsers: function() {
-    db.Users.findAll({})
+  numUsers: function(cb) {
+    db.Users.findAll({where: {presenting: true}})
     .then(function(results){
-      return results.length;
+      cb(results.length);
     });
   },
 
