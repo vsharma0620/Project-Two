@@ -44,6 +44,6 @@ module.exports = function(sequelize, DataTypes) {
 
 
     });
-    Presenter.sync({force: true})
+    // Presenter.sync({force: true})
     return Presenter;
 }
