@@ -13,7 +13,7 @@ var router = express.Router();
 // Routes
 // =============================================================
 
-// Add sequelize code to get all users and return them as JSON
+// Add sequelize code to get all books and return them as JSON
 router.get("/api/all", function(req, res) {
   db.Users.findAll({})
   .then(function(results) {
@@ -21,7 +21,7 @@ router.get("/api/all", function(req, res) {
   })
 });
 
-// Add sequelize code to create a user
+// Add sequelize code to create a book
 router.post("/api/newUser", function(req, res) {
   console.log("Posted");
   db.Users.create({
@@ -36,16 +36,6 @@ router.post("/api/newUser", function(req, res) {
     });
 });
 
-router.delete("/api/delete", function(req, res) {
-  db.Users.max("id")
-  .then(function(maxId){
-    db.Users.destroy({
-      where: {id: maxId}
-    }).then(function(result){
-      res.json(result);
-    });
-  })
-});
 
 // Add sequelize code to delete user
 router.delete("/api/delete/:id", function(req, res) {
@@ -57,7 +47,7 @@ router.delete("/api/delete/:id", function(req, res) {
 });
 
 //finds active presenter user information
-router.get("api/presenter", function(req, res) {
+router.get("/api/presenter", function(req, res) {
   db.User.findOne({
     where: {status: 2}
   }).then(function(result) {
@@ -66,39 +56,35 @@ router.get("api/presenter", function(req, res) {
 });
 
 //Gets current text of presenter table
-router.get("api/presenter/text", function(req, res) {
+router.get("/api/presenter/text", function(req, res) {
   db.Presenter.findOne({}).then(function(result) {
     res.json(result.Text);
   })
 });
 
 //Gets current audio of presenter table
-router.get("api/presenter/audio", function(req, res) {
+router.get("/api/presenter/audio", function(req, res) {
   db.Presenter.findOne({}).then(function(result) {
     res.json(result.Audio);
   })
 });
 
-router.get("api/status/:id", function(req,res) {
+router.get("/api/status/:id", function(req,res) {
   db.User.findOne({where: {id: req.params.id}})
   .then(function(result){
     res.json(result);
   });
 });
 
-router.post("api/presenter/text", function(req, res) {
+router.post("/api/presenter/text", function(req, res) {
+  console.log("update action")
   db.Presenter.update(
     {Text: req.body.text},
-    {where: {id: 0}})
-})
-router.delete("/api/presenter/:id", function(req, res) {
-  console.log("id is ", req.param.id)
-  db.Presenter.destroy({
-    where: {id: req.params.id}
-  }).then(function(result){
-    res.json(result);
+    {where: {id: 1}})
+    .then(function(data){
+      res.end();
+    })
   });
-});
 
 router.put("/live/audio", function(req, res) {
   console.log("chunk", req.body);
@@ -106,5 +92,12 @@ router.put("/live/audio", function(req, res) {
 
 module.exports = router;
 
+// router.delete("/api/presenter/:id", function(req, res) {
+//   db.Presenter.destroy({
+//     where: {id: req.params.id}
+//   }).then(function(result){
+//     res.json(result);
+//   });
+// });
 
 

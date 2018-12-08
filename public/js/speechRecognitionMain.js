@@ -34,17 +34,21 @@ function clearText() {
 }
 
 // function to submit the data to the server.
-function submitToServer(event) {
-    //console.log(event)
+function submitToServer(event){
     event.preventDefault();
+    console.log("test test test");
     var speech = {
         text: finalTranscript
-        // text: "Brian is a wiz"
-    };
-    $.post("api/presenter/text", speech)
-
-        console.log("======================")
-        console.log("Submitted to Server!")
+        //text: "Brian is a wiz"
+    }
+    $.ajax({
+        url: "api/presenter/text", 
+        type: "POST",
+        data: speech
+        }).then(function(data){
+            console.log(data);
+            console.log("Submitted to Server!");
+    });
 };
 
 
@@ -59,19 +63,24 @@ recognition.onresult = (event) => {
 
             //aim to push the currentTranscript on to the SQL Server
 
-            //finalTranscript = transcript;
-            console.log("Current Transcript: " + currentTranscript);
-
-            $(".wordsContainer").append(currentTranscript + "<br>" + "<br>")
+        //aim to push the currentTranscript on to the SQL Server
+        
+        //finalTranscript = transcript;
+        console.log("Current Transcript: "+ currentTranscript);
+                
+        $(".wordsContainer").append(currentTranscript + "<br>" + "<br>")
         } else {
             interimTranscript += transcript; // interimTranscript is not final
         }
-    }
+    }        
 }
 
-$(document).ready(function () {
+$(document).ready(function(){
     $("#btnStartRec").click(startRecognition); // button to start speech recognition
     $("#btnEndRec").click(stopRecognition); // button to stop speech recognition
     $("#btnClearRec").click(clearText); //button to clear the display 
+    //$("#btnSubmitRec").click(console.log("test test")); // button to push the final transcript to the server
     $("#btnSubmitRec").click(submitToServer); // button to push the final transcript to the server
 });
+
+    
