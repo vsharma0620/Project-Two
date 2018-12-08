@@ -13,7 +13,7 @@ var router = express.Router();
 // Routes
 // =============================================================
 
-// Add sequelize code to get all users and return them as JSON
+// Add sequelize code to get all books and return them as JSON
 router.get("/api/all", function(req, res) {
   db.Users.findAll({})
   .then(function(results) {
@@ -21,7 +21,7 @@ router.get("/api/all", function(req, res) {
   })
 });
 
-// Add sequelize code to create a user
+// Add sequelize code to create a book
 router.post("/api/newUser", function(req, res) {
   console.log("Posted");
   db.Users.create({
@@ -36,16 +36,6 @@ router.post("/api/newUser", function(req, res) {
     });
 });
 
-router.delete("/api/delete", function(req, res) {
-  db.Users.max("id")
-  .then(function(maxId){
-    db.Users.destroy({
-      where: {id: maxId}
-    }).then(function(result){
-      res.json(result);
-    });
-  })
-});
 
 // Add sequelize code to delete user
 router.delete("/api/delete/:id", function(req, res) {
@@ -90,21 +80,19 @@ router.post("/api/presenter/text", function(req, res) {
   console.log("update action")
   db.Presenter.update(
     {Text: req.body.text},
-
     {where: {id: 1}})
     .then(function(data){
       res.end();
     })
-//     {where: {id: 0}})
-})
-router.delete("/api/presenter/:id", function(req, res) {
-  console.log("id is ", req.param.id)
-  db.Presenter.destroy({
-    where: {id: req.params.id}
-  }).then(function(result){
-    res.json(result);
-
   });
 
+// router.delete("/api/presenter/:id", function(req, res) {
+//   db.Presenter.destroy({
+//     where: {id: req.params.id}
+//   }).then(function(result){
+//     res.json(result);
+//   });
+// });
 
+module.exports = router;
 
