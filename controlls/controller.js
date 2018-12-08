@@ -22,30 +22,41 @@ var moment = require("moment");
         cb(ids);
     });
   };
+
+  var getPresenter = function(resolve) {
+    db.Users.findOne({
+        where: {status: 2}
+      }).then(function(result) {
+        return resolve(result);
+      }).catch(function(err) {
+        console.log((Error ("Can't find Presenter")));
+      });
+  };
 //selects random user that wants to present and makes them on deck
- var readyOnDeck = new Promise(function(resolve, reject) {
+ var readyOnDeck = function(cb) {
     getNotPresented(function(users) {
+      console.log("ids", users);
       let rand = Math.floor(Math.random()*users.length);
       db.Users.update(
         {status: 1},
         {where: {id: users[rand]}}
       ).then(function(result) {
-          console.log(rand);
-          console.log(result);
-        resolve(result);
+        //   console.log(rand);
+        //   console.log(result);
+          cb(result);
       }).catch(function(error){
-        reject(Error("It broke"));
+         console.log(Error("It broke"));
       });
     });
 
-  });
+  };
 
 
 var controller = {
     run: function () {
         console.log('running....');
         //hook = listener on(user created)
-        db.Users.hook('afterCreate', function (user, options) {
+        db.Users.addHook('afterCreate', function (user, options) {
             console.log('User Created');
             users.numUsers(function (numUsers) {
                 if (numUsers < 2) {
@@ -63,10 +74,11 @@ var controller = {
                             db.Users.update({status: 2},
                             {where: {status: 1}}
                             ).then(function (result) {
-                                readyOnDeck.then(function () {
-                                    users.getPresenter(function (presenter) {
+                                readyOnDeck(function (result) {
+                                    console.log("Second On Deck", result);
+                                    getPresenter(function (presenter) {
                                         var end = moment(moment()).add(5, "minutes");
-                                        console.log(end);
+                                        // console.log(end);
                                         users.updatePresenter(presenter, end);
                                     });
                                     setTimeout(function () {
@@ -74,10 +86,10 @@ var controller = {
                                             // set Presenter.
                                             //Swap changes everyones status in the user table.
                                             users.swap(function (result) {
-                                                readyOnDeck.then(function() {
-                                                   users.getPresenter(function (presenter) {
+                                                readyOnDeck(function(result) {
+                                                   getPresenter(function (presenter) {
                                                        var end = moment(moment()).add(5, "minutes");
-                                                       console.log(end);
+                                                    //    console.log(end);
                                                        users.updatePresenter(presenter, end);
                                                    });
                                                 });        
@@ -85,16 +97,27 @@ var controller = {
                                             //I need to set the presenter after everyone swaps and then set that //username to the current presenster
             
                                             // performs every five minutes
-                                        }, 60000);
-                                    }, 30000);
+                                        }, 6000);
+                                    }, 3000);
                                 })
                             })
                             
-                         }, 120000);
+                         }, 12000);
                     });
                 }
             });
         });
+
+        //If less then 2 Users reset Interval
+        db.Users.addHook("afterDestroy", function (user, options) {
+            console.log('User Destroyed');
+            users.numUsers(function (numUsers) {
+                if (numUsers < 2) {
+                    clearInterval();
+                }
+            });
+        });
+
     }
 };
 // //use moment to find current time and add five minutes to it. This will be set as the end time.
