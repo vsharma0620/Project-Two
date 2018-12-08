@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
-    "password": "Bruno123.",
-=======
     "password": "blackwalnuts",
->>>>>>> 42f42483705d925c4e7715194bdd7d2cdd54a463
     "database": "open_mic_db",
     "host": "localhost",
     "port": 3306,
