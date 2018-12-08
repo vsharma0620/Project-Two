@@ -68,7 +68,7 @@ var controller = {
                     //if the numUsers are equal to 2 then we want to call the readyOnDeck to get a presenter and then return the presenter
                 } else if (numUsers === 2) {
                     //select first presenter give them 2min on deck
-                    readyOnDeck.then(function(){
+                    readyOnDeck(function(){
                         setTimeout(function () {
                             //First time make onDeck presenter get new on Deck
                             db.Users.update({status: 2},
