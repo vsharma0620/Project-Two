@@ -86,6 +86,12 @@ router.post("/api/presenter/text", function(req, res) {
     })
   });
 
+router.put("/live/audio", function(req, res) {
+  console.log("chunk", req.body);
+});
+
+module.exports = router;
+
 // router.delete("/api/presenter/:id", function(req, res) {
 //   db.Presenter.destroy({
 //     where: {id: req.params.id}
@@ -94,5 +100,4 @@ router.post("/api/presenter/text", function(req, res) {
 //   });
 // });
 
-module.exports = router;
 
