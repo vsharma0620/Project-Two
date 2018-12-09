@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "Bruno123.",
-    "database": "open_mic_db",
-    "host": "localhost",
+    "username": "frh9ob7mmlwivxe8",
+    "password": "bqy9rniwaoep1ydz",
+    "database": "fpeig65ngtlp4wl4",
+    "host": "gzp0u91edhmxszwf.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "port": 3306,
     "dialect": "mysql"
   },
