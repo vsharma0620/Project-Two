@@ -28,4 +28,4 @@ Challenges:
 
 Here is the following deployed heroku link: https://polar-journey-27833.herokuapp.com/ 
 
-Please run this locally by using the schema in mySQL workbench before running this locally in terminal. We are still working on making this fully functional at this time. The clear and delete functions and the presenter and audience views. 
+Please run this locally by using the schema in mySQL workbench before running this locally in terminal. We are still working on making this fully functional at this time. The clear and delete functions and the presenter and audience views are incomplete at this time.  
